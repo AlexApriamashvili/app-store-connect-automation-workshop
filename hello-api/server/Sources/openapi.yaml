@@ -1,0 +1,36 @@
+openapi: '3.1.0'
+info:
+  title: HelloService
+  version: 0.0.1
+servers:
+  - url: https://example.com/api
+    description: Example service deployment.
+paths:
+  /greet:
+    get:
+      operationId: sayHello
+      parameters:
+        - name: name
+          required: false
+          in: query
+          description: The name used in the returned greeting.
+          schema:
+            type: string
+      responses:
+        '200':
+          description: A successful response with a greeting.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Greeting'
+components:
+  schemas:
+    Greeting:
+      type: object
+      description: A value with the greeting contents.
+      properties:
+        message:
+          type: string
+          description: The string representation of the greeting.
+      required:
+        - message
