@@ -7,10 +7,6 @@ let package = Package(
   name: "hello-appstore",
   platforms: [.macOS(.v14)],
 
-  products: [
-    .library(name: "Schema", type: .static, targets: ["Schema"]),
-  ],
-
   dependencies: [
     .package(url: "https://github.com/apple/swift-argument-parser", from: "1.3.0"),
     .package(url: "https://github.com/apple/swift-openapi-runtime", from: "1.4.0"),
